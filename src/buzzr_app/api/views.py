@@ -1,12 +1,12 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework import generics
 
 from buzzr_app.models import Buzz
 from .serializers import BuzzSerializer
 
-class BuzzListView(ListAPIView):
+class BuzzListView(generics.ListCreateAPIView):
     queryset = Buzz.objects.all()
     serializer_class = BuzzSerializer
 
-class BuzzDetailView(RetrieveAPIView):
+class BuzzDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Buzz.objects.all()
     serializer_class = BuzzSerializer
