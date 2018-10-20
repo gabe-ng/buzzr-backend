@@ -6,8 +6,11 @@ class Profile(models.Model):
     full_name = models.CharField(max_length=100)
     user_name = models.CharField(max_length=100)
     email = models.CharFIeld(max_length=100)
-    follwers = models.IntegerField(default=0)
+    followers = models.IntegerField(default=0)
     join_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.full_name
 
 
 class Buzz(models.Model):
